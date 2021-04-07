@@ -27,7 +27,7 @@ export class MenuService {
       
   }
 
-  removeMenu(menuId: number): void {
-
+  removeMenu(menuId: number): Observable<any> {
+    return this.http.delete(`${this.appUrl + this.apiUrl}?id=${menuId}`, {responseType: 'text'});
   }
 }

@@ -59,7 +59,12 @@ export class MenuComponent implements OnInit {
  
 
   removeMenu(menuId: number): void {
-    this.menuService.removeMenu(menuId);
+    this.menuService.removeMenu(menuId).subscribe(
+      data => {
+        this.loadMenu();
+      },
+      error => console.log(error)
+    );
   }
 
 }
