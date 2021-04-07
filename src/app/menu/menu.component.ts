@@ -13,7 +13,8 @@ export class MenuComponent implements OnInit {
     private menuService: MenuService
   ) { }
 
-  allMenu: Menu[];
+  allMenu: Menu[] = [];
+  /*
   menus: Menu[] =  [
     {
       id: 1,
@@ -40,10 +41,22 @@ export class MenuComponent implements OnInit {
       ]
     }  
   ];
-  
+  */
+
   ngOnInit(): void {
-    this.allMenu = this.menuService.getAllMenu();
+    this.loadMenu();
   }
+
+  loadMenu() {
+    this.menuService.getAllMenu().subscribe(
+      data => {
+        this.allMenu = data;
+      },
+      error => {
+        console.log(error);
+      });
+  }
+ 
 
   removeMenu(menuId: number): void {
     this.menuService.removeMenu(menuId);
