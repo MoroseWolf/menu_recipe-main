@@ -1,0 +1,68 @@
+.section {
+    min-height: 590px;
+    background-size: 100%;
+    background: url('../../assets/add.jpg') center no-repeat;
+    width: 100%;
+    height: 590px;
+    overflow: auto;
+    align-items: center;
+}
+.form-group {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+}
+.form-control {
+    width: 400px;
+    margin-top: 5px;
+    margin-right: 5px;
+    background-color: rgba(255, 255, 255, 0.836);
+    border: none;
+    color: #333;
+    padding: 10px 0px 5px 10px;
+}
+.property-description {
+    display: flex;
+    flex-direction: column;
+}
+.property-card {
+    margin-top: 100px;
+    background-color: rgba(226, 226, 226, 0.755);
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 250px;
+}
+.cards {
+    /* display: flex;
+    justify-content: space-around; */
+}
+.center {
+    display: flex;
+    justify-content: center;
+}
+p {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+.btn-show-more {
+    border: none;
+    background-color: salmon;
+    width: 50%;
+    margin: 10px auto;
+    padding: 10px 30px;
+    color: white;
+    font-family: "Noto Sans KR", sans-serif;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+}
+.rec {
+    margin-left: 30px;
+}
+
+.hidden { 
+    display: none;
+}

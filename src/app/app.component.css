@@ -1,0 +1,57 @@
+.items {
+  display: inline-flex;
+  margin: 10px 15px 10px 10px;
+}
+.property-card {
+  height:18em;
+  width:14em;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+}
+.property-image {
+  height:6em;
+  width:14em;
+  padding:1em 2em;
+  position:Absolute;
+  top:0px;
+  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+.property-description {
+  background-color: #FAFAFC;
+  height:14em;
+  width:14em;
+  position:absolute;
+  bottom:0em;
+  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  text-align:center;
+}
+.btn-show-more {
+  width: 150px;
+  font-size: 12px;
+  padding: 10px;
+}
+button {
+  border: none;
+  background-color: salmon;
+  width: 50%;
+  margin: 5px auto;
+  padding: 10px 30px;
+  color: white;
+  font-family: "Noto Sans KR", sans-serif;
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
+}
+.btn-add {
+  width: 200px;
+}
+.name {
+  margin-top: 10px;
+}

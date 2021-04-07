@@ -1,0 +1,20 @@
+<app-header></app-header>
+
+<div class="section">
+    <div *ngFor="let recipe of recipes" class="items">
+        <div class="center">
+            <div class="property-card">
+                <div class="property-image recipe">
+                    <div class="property-image-title">
+                    </div>
+                </div>
+              <div class="property-description">
+                <h5 class="name">{{ recipe.name }}</h5>
+                <p class="day">Калорийность: {{ recipe.summ_calories }}</p>
+                <button [routerLink] = "['/recipe/show', recipe.id ]" class="btn-show-more">Подробнее</button>
+                <button (click)="removeRecipe(recipe.id)" class="btn-show-more del">Удалить</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

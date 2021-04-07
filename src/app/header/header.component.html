@@ -1,0 +1,17 @@
+<div class="header">
+    <div class="container test">
+        <div class="header__inner">
+            <a routerLink="/" class="nav__link logo">RecipeClient</a>
+
+            <nav class="nav menu">
+                <a routerLink="/" class="links menu__link nav__link">Меню</a>
+                <a routerLink="/recipe" class="links menu__link nav__link">Список рецептов</a>
+
+                <a [routerLink] = "['/add-item', 'menu']" class="links menu__link nav__link">Добавить меню</a>
+                <a [routerLink] = "['/add-item', 'recipe']" class="links menu__link nav__link">Добавить рецепт</a>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

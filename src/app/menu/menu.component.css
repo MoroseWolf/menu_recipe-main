@@ -1,0 +1,19 @@
+.section {
+  min-height: 590px;
+  background-size: 100%;
+  background: url('../../assets/20171512144905.jpg') center no-repeat;
+  width: 100%;
+  height: 590px;
+  overflow: auto;
+}
+h5 {
+  margin:0px;
+  font-size:1.4em;
+  font-weight:700;
+}
+p {
+  font-size:14px;
+}
+.property-image {
+  background:url('../../assets/Moataz-Mohamed_01.jpg');
+}

@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<div class="section">
+    <div class="cards">
+        <div [formGroup]="menuForm" [class.hidden]="title === 'menu' ? false : true" class="items menu">
+            <div class="center">
+              <div class="property-card">
+                <p>Добавить меню</p>  
+                <div class="property-description">
+                    <div class="form-group">
+                        <input class="form-control" formControlName="name" type="text" placeholder="Название">
+                        <span *ngIf="menuForm.get('name').invalid && menuForm.get('name').touched" class="error-text">Это обязательное поле.</span>
+                    </div>
+        
+                    <div class="form-group">
+                        <input class="form-control" formControlName="day" type="text" placeholder="День">
+                        <span *ngIf="menuForm.get('day').invalid && menuForm.get('day').touched" class="error-text">Это обязательное поле.</span>
+                    </div>
+                    <button type="submit" (click)="addMenu()" class="btn-show-more" [disabled]="menuForm.invalid || menuForm.disabled" >Добавить</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <div [formGroup]="recipeForm" [class.hidden]="title === 'recipe' ? false : true" class="items recipe">
+            <div class="center">
+              <div class="property-card">
+                <p>Добавить рецепт</p>  
+                <div class="property-description">
+                    <div class="form-group">
+                        <input class="form-control rec" formControlName="name" type="text" placeholder="Название">
+                        <span *ngIf="recipeForm.get('name').invalid && recipeForm.get('name').touched" class="error-text">Это обязательное поле.</span>
+                    </div>
+                    <button type="submit" (click)="addRecipe()" class="btn-show-more" [disabled]="recipeForm.invalid || recipeForm.disabled">Добавить</button>    
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
