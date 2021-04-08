@@ -11,7 +11,9 @@ import { Recipe } from '../models/recipe.model';
 export class RecipeService {
 
   private appUrl = environment.appUrl;
-  private apiUrl = 'menu';
+  private apiMenuUrl = 'menu';
+  private apiRecipeUrl = 'recipe';
+
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8'
@@ -20,12 +22,12 @@ export class RecipeService {
 
     constructor(private http: HttpClient) { }
 
-    createRecipe(recipe: Recipe): void {
-      
+    createRecipe(recipe: Recipe): Observable<any> {
+      return this.http.post(`${this.appUrl + this.apiRecipeUrl}`, recipe, this.httpOptions);
     }
 
     getRecipeByMenuId(menuId: number): Observable<Menu> {
-      return this.http.get<Menu>(`${this.appUrl + this.apiUrl}?id=${menuId}`);
+      return this.http.get<Menu>(`${this.appUrl + this.apiMenuUrl}?id=${menuId}`);
     }
 
     removeRecipe(recipeId: number): void {
