@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Recipe } from 'src/app/models/recipe.model';
+import { Menu } from 'src/app/models/menu.model';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -17,8 +18,8 @@ export class MenuInfoComponent implements OnInit {
 
   menuId: number;
   // getResBy id from url
-  recipesByMenuId: Recipe[];
-
+  recipesByMenuId: Recipe[] = [];
+/*
   recipes: Recipe[] = [
     {
       id: 1,
@@ -26,12 +27,22 @@ export class MenuInfoComponent implements OnInit {
       summ_calories: 150
     }
   ];
+*/
 
   ngOnInit(): void {
     this.activationRoute.params.subscribe(id => this.menuId = id.id);
-    this.recipesByMenuId = this.recipeService.getRecipeByMenuId(this.menuId);
+    console.log(this.menuId);
+    this.loadRecipes();
   }
 
+  loadRecipes() {
+    this.recipeService.getRecipeByMenuId(this.menuId).subscribe(
+      data => {
+        this.recipesByMenuId = data.recipeSet;
+      },
+      error => console.log(error)
+    );
+  }
   removeRecipe(recipeId: number) {
     this.recipeService.removeRecipe(recipeId);
   }
