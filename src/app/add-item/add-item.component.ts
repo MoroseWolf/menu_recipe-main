@@ -1,3 +1,4 @@
+import { createOfflineCompileUrlResolver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -12,6 +13,11 @@ import { RecipeService } from '../services/recipe.service';
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
+
+  menu: Menu = {
+    name: '',
+    day: '',
+  }
 
   constructor(
     private activationRoute: ActivatedRoute,
@@ -45,7 +51,12 @@ export class AddItemComponent implements OnInit {
       name, day
     };
 
-    this.menuService.createMenu(menu);
+    this.menuService.createMenu(menu).subscribe(
+      data => {
+        this.menu = data;
+      },
+      error => console.log(error)
+    );
     this.menuForm.reset();
   }
 

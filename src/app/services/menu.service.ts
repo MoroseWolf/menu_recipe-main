@@ -23,8 +23,8 @@ export class MenuService {
     return this.http.get<Menu[]>(`${this.appUrl + this.apiUrl}`);
   }
 
-  createMenu(menu: Menu): void {
-      
+  createMenu(menu: Menu): Observable<any> {
+      return this.http.post(`${this.appUrl + this.apiUrl}`, menu, this.httpOptions);
   }
 
   removeMenu(menuId: number): Observable<any> {
