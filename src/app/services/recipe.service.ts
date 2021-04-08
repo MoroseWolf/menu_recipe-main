@@ -30,6 +30,10 @@ export class RecipeService {
       return this.http.get<Menu>(`${this.appUrl + this.apiMenuUrl}?id=${menuId}`);
     }
 
+    getAllRecipes(): Observable<Recipe[]> {
+      return this.http.get<Recipe[]>(`${this.appUrl + this.apiRecipeUrl}`);
+    }
+
     removeRecipe(recipeId: number): Observable<any>{
       return this.http.delete(`${this.appUrl + this.apiRecipeUrl}?id=${recipeId}`, {responseType: 'text'});
     }

@@ -13,6 +13,8 @@ export class RecipeComponent implements OnInit {
     private recipeService: RecipeService
   ) { }
 
+  recipes: Recipe[] = [];
+  /*
   recipes: Recipe[] = [
     {
       id: 1,
@@ -30,8 +32,19 @@ export class RecipeComponent implements OnInit {
       summ_calories: 230
     }
   ];
+*/
 
   ngOnInit(): void {
+    this.loadRecipes();
+  }
+
+  loadRecipes() {
+    this.recipeService.getAllRecipes().subscribe(
+      data => {
+        this.recipes = data;
+      },
+      error => console.log(error)
+    );
   }
 
   removeRecipe(id: number): void {
