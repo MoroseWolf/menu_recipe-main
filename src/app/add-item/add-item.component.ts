@@ -1,4 +1,3 @@
-import { createOfflineCompileUrlResolver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -17,6 +16,9 @@ export class AddItemComponent implements OnInit {
   menu: Menu = {
     name: '',
     day: '',
+  }
+  recipe: Recipe = {
+    name: ''
   }
 
   constructor(
@@ -65,7 +67,13 @@ export class AddItemComponent implements OnInit {
 
     let recipe: Recipe = { name };
 
-    this.recipeService.createRecipe(recipe);
+    this.recipeService.createRecipe(recipe).subscribe(
+      data => {
+        this.recipe = data;
+      },
+      error => console.log(error)
+    );
+
     this.recipeForm.reset();
   }
 }
