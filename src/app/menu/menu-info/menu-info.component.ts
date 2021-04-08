@@ -44,7 +44,12 @@ export class MenuInfoComponent implements OnInit {
     );
   }
   removeRecipe(recipeId: number) {
-    this.recipeService.removeRecipe(recipeId);
+    this.recipeService.removeRecipe(recipeId).subscribe(
+      data => {
+        this.loadRecipes();
+      },
+      error => console.log(error)
+    );
   }
 
 }

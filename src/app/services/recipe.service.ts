@@ -30,7 +30,7 @@ export class RecipeService {
       return this.http.get<Menu>(`${this.appUrl + this.apiMenuUrl}?id=${menuId}`);
     }
 
-    removeRecipe(recipeId: number): void {
-
+    removeRecipe(recipeId: number): Observable<any>{
+      return this.http.delete(`${this.appUrl + this.apiRecipeUrl}?id=${recipeId}`, {responseType: 'text'});
     }
 }

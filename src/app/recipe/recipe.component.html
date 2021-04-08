@@ -12,7 +12,7 @@
             <h5 class="name">{{ recipe.name }}</h5>
             <p class="day">Калорийность: {{ recipe.summ_calories }}</p>
             <button [routerLink] = "['/recipe/show', recipe.id ]" class="btn-show-more">Подробнее</button>
-            <button (click)="removeRecipe(recipe)" class="btn-show-more del">Удалить</button>
+            <button (click)="removeRecipe(recipe.id)" class="btn-show-more del">Удалить</button>
           </div>
         </div>
       </div>

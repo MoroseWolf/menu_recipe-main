@@ -34,8 +34,10 @@ export class RecipeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  removeRecipe(recipe: Recipe): void {
-    this.recipeService.removeRecipe(recipe.id);
+  removeRecipe(id: number): void {
+    this.recipeService.removeRecipe(id).subscribe(
+      error => console.log(error)
+    );
   }
 
 }
