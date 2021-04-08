@@ -23,11 +23,11 @@ export class IngredientService {
     constructor(private http: HttpClient) { }
 
     getIngredientsByRecipeId(recipeId: number): Observable<Recipe> {
-      return  this.http.get<Recipe>(`${this.appUrl + this.apiRecipeUrl}?id=${recipeId}`);
+      return this.http.get<Recipe>(`${this.appUrl + this.apiRecipeUrl}?id=${recipeId}`);
     }
     
-    removeIngredientById(recipeId: number): void {
-      
+    removeIngredientById(ingedientId: number): Observable<any> {
+      return this.http.delete(`${this.appUrl + this.apiIngridientUrl}?id=${ingedientId}`, {responseType: 'text'});
     }
 
 }

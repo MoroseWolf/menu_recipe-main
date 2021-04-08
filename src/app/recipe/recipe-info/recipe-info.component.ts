@@ -41,8 +41,13 @@ export class RecipeInfoComponent implements OnInit {
     );
   }
 
-  removeIngredient(ingredId: number): void {
-    this.ingredientService.removeIngredientById(ingredId);
+  removeIngredient(ingredId: number) {
+    this.ingredientService.removeIngredientById(ingredId).subscribe(
+      data => {
+        this.loadIngridientsByRecipe();
+      },
+      error => console.log(error)
+    );
   }
 
 }
