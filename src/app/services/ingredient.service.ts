@@ -1,16 +1,29 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Ingredient } from '../models/ingredient.model';
 import { Menu } from '../models/menu.model';
+import { Recipe } from '../models/recipe.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IngredientService {
 
-    constructor() { }
+  private appUrl = environment.appUrl;
+  private apiRecipeUrl = 'recipe';
+  private apiIngridientUrl = 'ingridients';
 
-    getIngredientsByRecipeId(recipeId: number): Ingredient[] {
-      return [];
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8'
+    })
+  };
+    constructor(private http: HttpClient) { }
+
+    getIngredientsByRecipeId(recipeId: number): Observable<Recipe> {
+      return  this.http.get<Recipe>(`${this.appUrl + this.apiRecipeUrl}?id=${recipeId}`);
     }
     
     removeIngredientById(recipeId: number): void {

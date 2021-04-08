@@ -16,8 +16,8 @@ export class RecipeInfoComponent implements OnInit {
   ) { }
 
   recipeId: number;
-  ingredientsByRecipeId: Ingredient[];
-
+  ingredientsByRecipeId: Ingredient[] = [];
+/*
   ingredients: Ingredient[] = [
     {
       id: 1, 
@@ -25,10 +25,20 @@ export class RecipeInfoComponent implements OnInit {
       calories: 60
     }
   ];
+*/
 
   ngOnInit(): void {
     this.activationRoute.params.subscribe(id => this.recipeId = id.id);
-    this.ingredientsByRecipeId = this.ingredientService.getIngredientsByRecipeId(this.recipeId);
+    this.loadIngridientsByRecipe();
+  }
+
+  loadIngridientsByRecipe(){
+    this.ingredientService.getIngredientsByRecipeId(this.recipeId).subscribe(
+      data => {
+        this.ingredientsByRecipeId = data.ingridSet;
+      },
+      error => console.log(error)
+    );
   }
 
   removeIngredient(ingredId: number): void {
