@@ -17,15 +17,7 @@ export class RecipeInfoComponent implements OnInit {
 
   recipeId: number;
   ingredientsByRecipeId: Ingredient[] = [];
-/*
-  ingredients: Ingredient[] = [
-    {
-      id: 1, 
-      name: 'Яйцо',
-      calories: 60
-    }
-  ];
-*/
+
 
   ngOnInit(): void {
     this.activationRoute.params.subscribe(id => this.recipeId = id.id);

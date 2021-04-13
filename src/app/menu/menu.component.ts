@@ -14,34 +14,7 @@ export class MenuComponent implements OnInit {
   ) { }
 
   allMenu: Menu[] = [];
-  /*
-  menus: Menu[] =  [
-    {
-      id: 1,
-      day: 'Первый день',
-      name: 'Менюшка',
-      summ_calories: 61,
-      recipeSet: [
-        {
-          name: 'Первый рецепт',
-          summ_calories: 61
-        }
-      ]
-    },
-    {
-      id: 2,
-      day: 'Второй день',
-      name: 'Менюшка',
-      summ_calories: 150,
-      recipeSet: [
-        {
-          name: 'Второй рецепт',
-          summ_calories: 150
-        }
-      ]
-    }  
-  ];
-  */
+  
 
   ngOnInit(): void {
     this.loadMenu();

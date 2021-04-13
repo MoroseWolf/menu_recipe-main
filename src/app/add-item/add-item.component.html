@@ -16,12 +16,21 @@
                         <input class="form-control" formControlName="day" type="text" placeholder="День">
                         <span *ngIf="menuForm.get('day').invalid && menuForm.get('day').touched" class="error-text">Это обязательное поле.</span>
                     </div>
+
+                    <ng-multiselect-dropdown
+                    [placeholder]="'Рецепты'"
+                    [settings]="dropdownSettings"
+                    [data]="dropdownRecipeList"
+                    [(ngModel)]="selectedRecipeItems"
+                    (onSelect)="onRecipeSelect($event)">
+                    </ng-multiselect-dropdown>
                     <button type="submit" (click)="addMenu()" class="btn-show-more" [disabled]="menuForm.invalid || menuForm.disabled" >Добавить</button>
                 </div>
               </div>
             </div>
         </div>
         
+        <div class="form-group">
         <div [formGroup]="recipeForm" [class.hidden]="title === 'recipe' ? false : true" class="items recipe">
             <div class="center">
               <div class="property-card">
@@ -31,6 +40,15 @@
                         <input class="form-control rec" formControlName="name" type="text" placeholder="Название">
                         <span *ngIf="recipeForm.get('name').invalid && recipeForm.get('name').touched" class="error-text">Это обязательное поле.</span>
                     </div>
+
+                    <ng-multiselect-dropdown
+                    [placeholder]="'Ингридиенты'"
+                    [settings]="dropdownSettings"
+                    [data]="dropdownList"
+                    [(ngModel)]="selectedItems"
+                    (onSelect)="onItemSelect($event)">
+                    </ng-multiselect-dropdown>
+                </div>
                     <button type="submit" (click)="addRecipe()" class="btn-show-more" [disabled]="recipeForm.invalid || recipeForm.disabled">Добавить</button>    
                 </div>
               </div>

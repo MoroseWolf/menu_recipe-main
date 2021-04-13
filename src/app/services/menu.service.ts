@@ -12,6 +12,7 @@ export class MenuService {
   private appUrl = environment.appUrl;
   private apiUrl = 'menu';
   private buyUrl = '/buy';
+  
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8'

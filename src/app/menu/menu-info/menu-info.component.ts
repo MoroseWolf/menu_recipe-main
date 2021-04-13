@@ -19,15 +19,7 @@ export class MenuInfoComponent implements OnInit {
   menuId: number;
   // getResBy id from url
   recipesByMenuId: Recipe[] = [];
-/*
-  recipes: Recipe[] = [
-    {
-      id: 1,
-      name: 'Яишенка',
-      summ_calories: 150
-    }
-  ];
-*/
+
 
   ngOnInit(): void {
     this.activationRoute.params.subscribe(id => this.menuId = id.id);

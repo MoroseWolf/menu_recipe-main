@@ -14,25 +14,6 @@ export class RecipeComponent implements OnInit {
   ) { }
 
   recipes: Recipe[] = [];
-  /*
-  recipes: Recipe[] = [
-    {
-      id: 1,
-      name: 'Яишенка',
-      summ_calories: 150
-    },
-    {
-      id: 2,
-      name: 'Паста',
-      summ_calories: 60
-    },
-    {
-      id: 3,
-      name: 'Пицца',
-      summ_calories: 230
-    }
-  ];
-*/
 
   ngOnInit(): void {
     this.loadRecipes();

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Menu } from '../models/menu.model';
 import { Recipe } from '../models/recipe.model';
+import { Ingredient } from '../models/ingredient.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,7 @@ export class RecipeService {
   private appUrl = environment.appUrl;
   private apiMenuUrl = 'menu';
   private apiRecipeUrl = 'recipe';
+  private apiAllIngredUrl = 'ingridients/allWithCalories';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -32,6 +35,10 @@ export class RecipeService {
 
     getAllRecipes(): Observable<Recipe[]> {
       return this.http.get<Recipe[]>(`${this.appUrl + this.apiRecipeUrl}`);
+    }
+
+    getAllIngridients(): Observable<Ingredient[]> {
+      return this.http.get<Ingredient[]>(`${this.appUrl + this.apiAllIngredUrl}`);
     }
 
     removeRecipe(recipeId: number): Observable<any>{

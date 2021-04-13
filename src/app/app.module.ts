@@ -11,6 +11,7 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { MenuInfoComponent } from './menu/menu-info/menu-info.component';
 import { RecipeInfoComponent } from './recipe/recipe-info/recipe-info.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AddItemComponent } from './add-item/add-item.component';
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
