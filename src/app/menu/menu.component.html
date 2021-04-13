@@ -13,6 +13,7 @@
           <p class="day">День: {{ menu.day }}</p>
           <p class="calories">Калории: {{ menu.summ_calories }}</p>
           <button [routerLink] = "['menu/show', menu.id ]" class="btn-show-more">Подробнее</button>
+          <button (click)="buyMenu(menu.id)" class="btn-show-more buy">Купить меню</button>
           <button (click)="removeMenu(menu.id)" class="btn-show-more del">Удалить</button>
         </div>
       </div>

@@ -57,6 +57,9 @@ export class MenuComponent implements OnInit {
       });
   }
  
+  buyMenu(menuId: number): void {
+    this.menuService.buyMenu(menuId).subscribe();
+  }
 
   removeMenu(menuId: number): void {
     this.menuService.removeMenu(menuId).subscribe(

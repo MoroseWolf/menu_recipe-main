@@ -3,7 +3,7 @@
   margin: 10px 15px 10px 10px;
 }
 .property-card {
-  height:18em;
+  height:24em;
   width:14em;
   display:flex;
   flex-direction:column;
@@ -25,7 +25,7 @@
 }
 .property-description {
   background-color: #FAFAFC;
-  height:14em;
+  height:18em;
   width:14em;
   position:absolute;
   bottom:0em;

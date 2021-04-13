@@ -11,6 +11,7 @@ export class MenuService {
 
   private appUrl = environment.appUrl;
   private apiUrl = 'menu';
+  private buyUrl = '/buy';
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8'
@@ -25,6 +26,10 @@ export class MenuService {
 
   createMenu(menu: Menu): Observable<any> {
       return this.http.post(`${this.appUrl + this.apiUrl}`, menu, this.httpOptions);
+  }
+
+  buyMenu(menuId: number): Observable<any> {
+    return this.http.post(`${this.appUrl + this.apiUrl + this.buyUrl}?id=${menuId}`, {responseType: 'text'});
   }
 
   removeMenu(menuId: number): Observable<any> {
